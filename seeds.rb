@@ -4,6 +4,8 @@ require_relative ('models/ticket')
 
 require ('pry')
 
+Customer.delete_all()
+
 customer1 = Customer.new({ 'name' => 'Samwise Gamgee' })
 customer1.save()
 customer2 = Customer.new({ 'name' => 'Frodo Baggins' })
