@@ -2,8 +2,7 @@ require_relative('../db/sql_runner')
 
 class Ticket
 
-  attr_reader :id
-  attr_accessor :customer_id, :film_id
+  attr_reader :id, :customer_id, :film_id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -15,6 +14,10 @@ class Ticket
     sql = "INSERT INTO tickets (customer_id, film_id) VALUES (#{@customer_id}, #{@film_id}) RETURNING id"
     ticket = SqlRunner.run(sql).first
     @id = ticket['id'].to_i
+  end
+
+  def purchase()
+
   end
 
   def self.all()
